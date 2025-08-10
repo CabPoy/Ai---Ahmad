@@ -97,8 +97,7 @@ const writeBlock = (title, html) => {
 const typeInto = async (el, text, delay=12) => {
   el.innerHTML = '';
   for(const ch of text){
-    el.innerHTML += ch === '
-' ? '<br>' : ch;
+    el.innerHTML += ch === '\n' ? '<br>' : ch;
     await new Promise(r=>setTimeout(r, delay));
   }
 };
