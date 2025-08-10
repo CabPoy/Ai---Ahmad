@@ -14,12 +14,23 @@ function startAIZahirExperience(){
   setTimeout(()=>{
     $('#welcome-screen').style.display='none';
     $('#main-experience').classList.add('active');
+    $('#main-experience').style.display = '';
   }, 350);
+}
+
+// Back button handler
+function goBackToWelcome() {
+  $('#main-experience').classList.remove('active');
+  $('#main-experience').style.display = 'none';
+  $('#welcome-screen').classList.add('active');
+  $('#welcome-screen').style.display = '';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   // دکمه شروع
   $('#start-btn').addEventListener('click', startAIZahirExperience);
+  // دکمه بازگشت
+  $('#back-btn').addEventListener('click', goBackToWelcome);
 
   // انتخاب فصل
   $$('.story-btn').forEach(btn => {
