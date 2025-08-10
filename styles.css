@@ -1,173 +1,19 @@
-/* --- پایه تایپوگرافی و بدنه --- */
-:root{
-  --bg: #0b0f1a;
-  --bg-soft: #101628;
-  --fg: #e8ecf3;
-  --muted: #9fb0c8;
-  --brand: #7bc4ff;
-  --accent: #ffd166;
-  --rose: #ff8fab;
-  --success: #7dd87d;
-  --danger: #ff6b6b;
-  --card: #111827;
-  --glass: rgba(255,255,255,.06);
-  --glass-2: rgba(255,255,255,.08);
-  --shadow: 0 20px 60px rgba(0,0,0,.35);
-}
+/* ...existing styles... */
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:'Vazirmatn', 'Scheherazade New', system-ui;
-  background: radial-gradient(1200px 800px at 80% -10%, #1d2440, transparent 60%),
-              radial-gradient(1400px 900px at -10% 100%, #1b2a3a, transparent 60%),
-              var(--bg);
-  color:var(--fg);
-  overflow-x:hidden;
+/* Back Button Styles */
+.back-btn {
+  margin-bottom: 12px;
+  padding: 0.55rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--muted), var(--brand));
+  color: #222;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: filter .16s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
-
-/* --- صفحه خوشامد --- */
-.welcome-screen{
-  position:fixed; inset:0;
-  display:grid; grid-template-columns:1.2fr 1fr;
-  align-items:center; gap:2rem;
-  padding:clamp(16px,4vw,48px);
-  transition:opacity .6s ease, transform .6s ease;
-  background: linear-gradient(180deg, rgba(17,24,39,.9), rgba(17,24,39,.6)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat fixed;
-}
-.welcome-screen:not(.active){opacity:0; pointer-events:none; transform:scale(1.02) translateY(-8px)}
-.welcome-content{backdrop-filter: blur(8px); background:var(--glass); border:1px solid var(--glass-2);
-  padding:clamp(16px,3.5vw,42px); border-radius:28px; box-shadow:var(--shadow)}
-.welcome-title{margin:0 0 .6rem; font-size:clamp(26px,3.2vw,44px); letter-spacing:.5px}
-.welcome-subtitle{margin:0 0 1rem; color:var(--accent); font-weight:600}
-.welcome-description{color:var(--muted); line-height:1.9}
-.start-journey{
-  margin-top:1.2rem; padding:.9rem 1.2rem; border-radius:16px;
-  background:linear-gradient(90deg, var(--brand), #9b9bff);
-  color:#0a0a12; border:none; font-weight:800; cursor:pointer;
-  display:inline-flex; align-items:center; gap:.5rem; box-shadow:var(--shadow);
-  transform:translateZ(0);
-}
-.start-journey:hover{filter:brightness(1.05)}
-.journey-icon{display:inline-block; animation:floatY 2.6s ease-in-out infinite}
-@keyframes floatY{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
-
-.welcome-visual{position:relative; height:100%; display:flex; align-items:center; justify-content:center}
-.ai-particles{position:relative; width:320px; height:320px; filter:drop-shadow(0 8px 30px rgba(123,196,255,.45));}
-.particle{
-  --size: 14px;
-  position:absolute; inset:auto; width:var(--size); height:var(--size);
-  border-radius:50%; background:radial-gradient(circle at 30% 30%, #fff, #9fd3ff);
-  box-shadow:0 0 24px #84caff, 0 0 64px rgba(132,202,255,.6);
-  animation: drift 8s linear infinite; animation-delay:var(--delay);
-}
-.particle:nth-child(1){top:10%; left:60%}
-.particle:nth-child(2){top:30%; left:20%}
-.particle:nth-child(3){top:55%; left:75%}
-.particle:nth-child(4){top:80%; left:35%}
-@keyframes drift{ from{transform:translate(0)} to{transform:translate(40px, -30px)} }
-
-/* --- بدنه اصلی --- */
-.main-experience{display:none; min-height:100vh}
-.main-experience.active{display:grid; grid-template-columns: 1fr 320px; gap:22px; padding:24px}
-
-.ai-nav .nav-container{
-  background:var(--glass); border:1px solid var(--glass-2); border-radius:20px; padding:18px 20px; box-shadow:var(--shadow)
-}
-.nav-title{margin:0 0 12px; font-weight:700}
-.story-modes{display:flex; gap:10px; flex-wrap:wrap}
-.story-btn{
-  background:var(--card); color:var(--fg); border:1px solid #263047; padding:.6rem .8rem; border-radius:14px;
-  display:inline-flex; align-items:center; gap:.45rem; cursor:pointer; transition:transform .15s ease, border-color .2s ease;
-}
-.story-btn:hover{transform:translateY(-2px); border-color:#3a4b6f}
-.story-btn.active{outline:2px solid var(--brand); background:#0e1a2f}
-
-.story-container{
-  background:var(--glass); border:1px solid var(--glass-2); border-radius:20px; padding:18px; box-shadow:var(--shadow);
-}
-.story-header{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
-.story-title{font-weight:800}
-.story-controls{display:flex; gap:10px; flex-wrap:wrap}
-.control-btn{
-  background:#172033; color:var(--fg); border:1px solid #263047; padding:.55rem .9rem; border-radius:12px; cursor:pointer;
-}
-.control-btn:hover{border-color:#3a4b6f}
-
-.story-content{margin-top:14px; min-height:180px}
-.story-placeholder{color:var(--muted)}
-
-.ai-response-area .response-container{
-  margin-top:16px; background:#0e1527; border:1px solid #283454; border-radius:16px; padding:14px;
-}
-.loading-state{display:flex; align-items:center; gap:10px}
-.loading-spinner{
-  width:18px;height:18px;border-radius:50%;
-  border:3px solid rgba(255,255,255,.2);
-  border-top-color:var(--brand);
-  animation:spin 1s linear infinite;
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-.response-content .block{
-  background:#0f1b33; border:1px solid #27395b; border-radius:14px; padding:14px; margin:10px 0;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
-}
-.response-content .block h4{margin:.2rem 0 .6rem 0; color:var(--accent)}
-
-/* --- پنل کناری --- */
-.interaction-panel{
-  background:var(--glass); border:1px solid var(--glass-2); border-radius:20px; padding:16px; box-shadow:var(--shadow);
-}
-.panel-section + .panel-section{margin-top:16px}
-.question-form textarea{
-  width:100%; min-height:110px; resize:vertical; background:#0e1527; color:var(--fg);
-  border:1px solid #283454; border-radius:12px; padding:10px;
-}
-.ask-btn{
-  margin-top:8px; background:linear-gradient(90deg, var(--rose), var(--accent)); color:#1b0f12;
-  border:none; padding:.6rem .9rem; border-radius:12px; cursor:pointer; font-weight:800;
-}
-.emotion-indicators{display:flex; gap:8px}
-.emotion{
-  background:#0e1527; color:var(--muted); border:1px solid #283454; padding:.45rem .6rem; border-radius:12px; cursor:pointer;
-}
-.emotion.active{outline:2px solid var(--rose); color:#fff}
-.story-history{display:grid; gap:10px; max-height:260px; overflow:auto}
-.history-item{background:#0e1527; border:1px solid #2a395a; border-radius:12px; padding:10px}
-.history-item small{color:var(--muted)}
-
-/* --- دستیار شناور --- */
-.floating-assistant{
-  position:fixed; right:16px; bottom:16px; display:flex; align-items:center; gap:10px;
-  background:var(--glass); border:1px solid var(--glass-2); padding:10px 12px; border-radius:16px; box-shadow:var(--shadow)
-}
-.assistant-avatar .avatar-icon{font-size:20px}
-.assistant-message p{margin:0; color:var(--muted); max-width:42ch}
-
-/* --- ویژوالایزر --- */
-.audio-visualizer{
-  position:fixed; left:50%; transform:translateX(-50%);
-  bottom:0; height:52px; display:flex; align-items:flex-end; gap:6px; padding:0 10px 8px;
-  pointer-events:none;
-}
-.visualizer-bar{
-  width:6px; height:10px; background:linear-gradient(180deg, var(--brand), #7bffca);
-  border-radius:6px; animation:bar 1.2s ease-in-out infinite;
-}
-.visualizer-bar:nth-child(2){animation-delay:.1s}
-.visualizer-bar:nth-child(3){animation-delay:.2s}
-.visualizer-bar:nth-child(4){animation-delay:.3s}
-.visualizer-bar:nth-child(5){animation-delay:.4s}
-@keyframes bar{
-  0%,100%{height:10px}
-  50%{height:48px}
-}
-
-/* --- واکنش‌گرا --- */
-@media (max-width: 980px){
-  .welcome-screen{grid-template-columns:1fr}
-  .main-experience.active{grid-template-columns:1fr}
-  .floating-assistant{left:16px; right:auto}
-}
+.back-btn:hover { filter: brightness(1.08); }
