@@ -8,18 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
-  <!--
-    توجه: کتابخانه‌های زیر در پیش‌نویس شما آمده‌اند. اگر در محیط شما در دسترس نیستند،
-    اسکریپت ما به‌صورت آفلاین کار می‌کند و به هیچ API بیرونی نیاز ندارد.
-    در صورت تمایل می‌توانید آدرس‌ها را فعال کنید.
-  -->
-  <!--
-  <script type="application/json" id="yw-manifest-data">{"ai_config":{"persian_storyteller":{"model":"claude-4-sonnet","temperature":0.8,"maxTokens":4000,"system_prompt":"تو یک داستان‌گوی فارسی‌زبان هستی که زندگی احمد ظاهر را به شکلی هنرمندانه و احساسی روایت می‌کنی. زبان شاعرانه و ادبی فارسی استفاده کن. داستان‌ها باید حال و هوای موسیقی افغانی، عشق، و جدایی داشته باشند."},"music_analyzer":{"model":"gemini-2.5-pro","temperature":0.7,"maxTokens":2000,"system_prompt":"تو یک کارشناس موسیقی هستی که آثار احمد ظاهر را تحلیل می‌کنی. درباره لحن، احساسات، و پیام پنهان ترانه‌ها صحبت کن."},"cultural_guide":{"model":"deepseek-v3","temperature":0.6,"maxTokens":1500,"system_prompt":"تو یک راهنمای فرهنگی هستی که درباره تاریخ موسیقی افغانستان، تأثیر احمد ظاهر، و میراث فرهنگی او توضیح می‌دهی."},"image_generator":{"model":"gpt-image-1","size":"1024x1024","quality":"high","response_format":"b64_json","prompt_template":"Create a ${style} style artistic image representing ${subject} in the context of Afghan music and Ahmad Zahir's legacy. ${details}"},"poet_assistant":{"model":"openai-gpt-4o","temperature":0.9,"maxTokens":3000,"system_prompt":"تو یک شاعر هستی که اشعار فارسی زیبا درباره احمد ظاهر و موسیقی او می‌سراید. از تصاویر شاعرانه، استعاره‌های موسیقایی، و زبان احساسی استفاده کن."}}}</script>
-  <script src="https://lib.youware.com/youware-lib-editor.1752562065.js" id="yourware-lib"></script>
-  <script src="https://lib.youware.com/youware-ai-4.3.16.js"></script>
-  <script src="https://lib.youware.com/youware-openai-1.3.22.js"></script>
-  <script src="https://lib.youware.com/youware-zod-3.25.67.js"></script>
-  -->
 </head>
 <body>
   <!-- Welcome Screen -->
@@ -48,6 +36,10 @@
 
   <!-- Main Experience -->
   <div id="main-experience" class="main-experience">
+    <!-- Back Button -->
+    <button class="back-btn" id="back-btn">
+      <span>←</span> بازگشت
+    </button>
     <!-- AI Story Navigator -->
     <nav class="ai-nav">
       <div class="nav-container">
